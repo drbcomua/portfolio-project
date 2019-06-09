@@ -5,7 +5,7 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 		<meta name="description" content=""/>
-		<title>Dmitry Rumyantsev / Portfolio</title>
+		<title>Dmitry Rumyantsev / Blog / {{ detailblog.title }}</title>
 
 		<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/"/>
 
@@ -38,8 +38,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav ml-auto">
-						<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span>
-						</a>
+						<a class="nav-item nav-link" href="/">Home</a>
 						<a class="nav-item nav-link" href="https://github.com/drbcomua/">GitHub</a>
 						<a class="nav-item nav-link" href="https://www.linkedin.com/in/rumyantsev/">LinkedIn</a>
 						<a class="nav-item nav-link" href="/blog/">Blog</a>
@@ -49,35 +48,17 @@
 		</header>
 
 		<main role="main">
-
-			<section class="jumbotron text-center">
-				<div class="container">
-					<h1 class="jumbotron-heading">Hi, I'm Dmitry</h1>
-					<p class="lead text-muted">Professional with 30 years in IT. Worked with great people and great companies to deliver fast and beautiful solutions that work.</p>
-					<p>
-						<a href="#" class="btn btn-primary my-2">Get in touch</a>
-						<a href="http://b.com.ua/" class="btn btn-secondary my-2">Read old blog (in Russian)</a>
-					</p>
-				</div>
-			</section>
-
-			<div class="album py-5 bg-light">
-				<div class="container">
-					<div class="row">
-{% for job in jobs.all %}
-						<div class="col-md-4">
-							<div class="card mb-4 shadow-sm">
-								<img class="card-img-top" src="{{ job.image.url }}" width="100%" height="225"/>
-								<div class="card-body">
-									<p class="card-text">{{ job.summary }}</p>
-								</div>
-							</div>
-						</div>
-{% endfor %}
-					</div>
-				</div>
-			</div>
-
+            <div class="container">
+                <h1 class="text-center pt-3">Dmitry's Blog</h1>
+                <br/>
+                <h2>{{ detailblog.title }}</h2>
+                <div class="mb-1 text-muted">{{ detailblog.pub_date }}</div>
+                <hr/>
+                <div class="col-auto d-none d-lg-block">
+                    <img class="img-fluid" src="{{ blog.image.url }}"/>
+                </div>
+                <p class="card-text mb-auto">{{ detailblog.body }}</p>
+            </div>
 		</main>
 
 		<footer class="text-muted">
@@ -85,7 +66,7 @@
 				<p class="float-right">
 					<a href="#">Back to top</a>
 				</p>
-				<p>&copy; {% now "Y" %} Dmitry Rumyantsev's jobs and blog site is based on Bootstrap and Django - see source at <a href="https://github.com/drbcomua/portfolio-project">https://github.com/drbcomua/portfolio-project</a></p>
+                <p>&copy; {% now "Y" %} Dmitry Rumyantsev's jobs and blog site is based on Bootstrap and Django - see source at <a href="https://github.com/drbcomua/portfolio-project">https://github.com/drbcomua/portfolio-project</a></p>
 			</div>
 		</footer>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"/>
